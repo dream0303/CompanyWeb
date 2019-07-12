@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>前台</title>
+</head>
+<body>
+
+<table width="600" border="1" align="center" rules="all" cellpadding="5">
+	<tr bgcolor='#ccc'>
+		<th>部門名稱</th>
+		<th>業務姓名</th>
+		<th>客戶寶號</th>
+		<th>聯絡人</th>
+		<th>總額</th>
+	</tr>
+
+	<?php
+	$sumAll=0;
+	foreach($arrs as $key => $dep){
+	  echo "<tr><td colspan='5'>".$key."</td></tr>";
+	  $sumDept=0;
+	  foreach($dep as $emp){
+		echo "<tr><td>&nbsp;</td><td>".$emp['姓名']."</td>";
+		$sumSales=0;
+		foreach($emp['客戶'] as $cs){
+		  echo "<td>".$cs['客戶寶號']."</td>";
+		  echo "<td>".$cs['聯絡人']."</td>";
+		  echo "<td>".$cs['總額']."</td></tr>";
+		  echo "<tr><td>&nbsp;</td><td>&nbsp;</td>";
+		  $sumSales+=$cs['總額'];
+		}
+		echo "<td colspan='2'></td>";
+		echo "<td>".$sumSales."</td></tr>";
+		echo "<tr><td colspan='5'>&nbsp;</td></tr>";
+		$sumDept+=$sumSales;
+	  }
+	  echo "<tr>";
+	  echo "<td>部門加總</td>";
+	  echo "<td colspan='4'>".$sumDept."</td>";
+	  echo "</tr>";
+	  $sumAll+=$sumDept;
+	} 
+	?>
+	<tr><td colspan="5">&nbsp;</td></tr>
+<tr><td colspan="5">&nbsp;</td></tr>
+<tr>
+  <td>銷售總額</td>
+  <td colspan="4"><?=$sumAll;?></td>
+</tr>
+</table>
+</body>
+</html>

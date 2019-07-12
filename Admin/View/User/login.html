@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>後台管理頁面</title>
+    <link rel="stylesheet" href="./Bootstrap/assets/styles/style.min.css"><!-- Waves Effect -->
+    <link rel="stylesheet" href="./Bootstrap/assets/plugin/waves/waves.min.css">
+</head>
+
+<body>
+    <div id="single-wrapper">
+        <form  name="form1" method="post" action="?c=User&a=loginCheck" id="form1" onSubmit="return checkForm();" class="frm-single">
+            <div class="inside">
+                <div class="title"><strong>後台管理</strong>頁面</div><!-- /.title -->
+                <div class="frm-title">登入</div><!-- /.frm-title -->
+                <div class="frm-input"><input name="username" type="text" placeholder="Username" class="frm-inp"><i
+                        class="fa fa-user frm-ico"></i></div><!-- /.frm-input -->
+                <div class="frm-input"><input name="password" type="password" placeholder="Password" class="frm-inp"><i
+                        class="fa fa-lock frm-ico"></i></div><!-- /.frm-input -->
+                
+                        <div  class="frm-input">請輸入驗證碼：
+                            <input id="verify" name="verify" class="input2" maxlength="4">&nbsp;<img
+                                        style="float:right;cursor:pointer;" width="70" src=" ?c=User&a=captcha"
+                                        onClick="this.src='?c=User&a=captcha&'+Math.random()" />
+                            </div>
+                <div class="clearfix margin-bottom-20">
+                    <div class="pull-left">
+                        <div class="checkbox primary"><input type="checkbox" id="rememberme"><label
+                                for="rememberme">Remember me</label></div><!-- /.checkbox -->
+                    </div><!-- /.pull-left -->
+                    <div class="pull-right"><a href="#" class="a-link"><i
+                                class="fa fa-unlock-alt"></i>Forgot password?</a></div><!-- /.pull-right -->
+
+                </div><!-- /.clearfix --><button type="submit" name="btnLogin" class="frm-submit">登入<i
+                        class="fa fa-arrow-circle-right"></i></button>
+                <div class="row small-spacing">
+                    <div class="col-sm-12">
+                        <div class="txt-login-with txt-center">or login with</div><!-- /.txt-login-with -->
+                    </div><!-- /.col-sm-12 -->
+                    <div class="col-sm-6"><button type="button"
+                            class="btn btn-sm btn-icon btn-icon-left btn-social-with-text btn-facebook text-white waves-effect waves-light"><i
+                                class="ico fa fa-facebook"></i><span>Facebook</span></button></div><!-- /.col-sm-6 -->
+                    <div class="col-sm-6"><button type="button"
+                            class="btn btn-sm btn-icon btn-icon-left btn-social-with-text btn-google-plus text-white waves-effect waves-light"><i
+                                class="ico fa fa-google-plus"></i>Google+</button></div><!-- /.col-sm-6 -->
+                </div><!-- /.row --><a href="index.php?c=Index" class="a-link"><i class="fa fa-key"></i>返回前台頁面</a>
+                <div class="frm-footer">網頁製作 余友閔 © 2019.</div><!-- /.footer -->
+            </div><!-- .inside -->
+        </form><!-- /.frm-single -->
+    </div>
+    <!--/#single-wrapper -->
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]><script src="assets/script/html5shiv.min.js"></script><script src="assets/script/respond.min.js"></script><![endif]-->
+    <!-- 	================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="./Bootstrap/assets/scripts/jquery.min.js"></script>
+    <script src="./Bootstrap/assets/scripts/modernizr.min.js"></script>
+    <script src="./Bootstrap/assets/plugin/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./Bootstrap/assets/plugin/nprogress/nprogress.js"></script>
+    <script src="./Bootstrap/assets/plugin/waves/waves.min.js"></script>
+    <script src="./Bootstrap/assets/scripts/main.min.js"></script>
+</body>
+</html>
+
+<script language="javascript">
+
+	function checkForm() {
+		//定義用戶名、密碼正則表達式
+		let reg1 = /^(\w{5,15})$/;
+		if (!reg1.test(document.form1.username.value)) {
+			alert("用戶名稱沒有填寫或格式不正確！");
+			document.form1.username.focus();
+			return false;
+		} else if (!reg1.test(document.form1.password.value)) {
+			alert("用戶密碼沒有填寫或格式不正確！");
+			document.form1.password.focus();
+			return false;
+		}
+	}
+</script>

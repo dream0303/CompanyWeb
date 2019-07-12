@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link href="./Public/Admin/Css/public.css" rel="stylesheet" type="text/css" />
+<title>用戶管理</title>
+</head>
+
+<body>
+<table width="100%" border="0" align="center" cellpadding="1" cellspacing="1" class="border">
+	<tr class="topbg"><td>用戶管理</td></tr>
+	<tr class="tdbg"><td height="30">&nbsp;&nbsp;
+	<a href="?c=User&a=index">管理首頁</a>&nbsp;|&nbsp;
+	<a href="?c=User&a=add">添加用戶</a></td></tr>
+</table>
+<br />
+<form id="form1" name="form1" method="post" action="?c=User&a=update">
+<table width="100%" border="0" align="center" cellpadding="3" cellspacing="1" class="border">
+	<tr class="title"><td colspan="2" align="center">修改用戶</td></tr>
+    <tr class="tdbg">
+		<td width="15%" height="30" align="right">用戶名稱：</td>
+		<td width="85%"><font color="#0000ff"><?= $user['username']; ?></font></td>
+    </tr>
+    <tr class="tdbg">
+		<td height="30" align="right">用戶密碼：</td>
+		<td>
+			<input name="password" type="password" size="20" maxlength="15" />
+			<font color="#FF0000">*</font>
+			<font color="#666666">長度為5-15位（字母、數字），不能含有特殊符號；不修改請留空白！</font>
+		</td>
+    </tr>
+    <tr class="tdbg">
+		<td height="30" align="right">確認密碼：</td>
+		<td>
+			<input name="confirmpwd" type="password" maxlength="15" />
+			<font color="#FF0000">*</font>
+			<font color="#666666">兩次輸入密碼必須一致；不修改請留空白！</font>
+		</td>
+    </tr>
+    <tr class="tdbg">
+		<td height="30" align="right">真實姓名：</td>
+		<td>
+			<input name="name" type="text" value="<?= $user['name']; ?>" size="20" />
+			<font color="#FF0000">*</font>
+			<font color="#666666">你的姓名</font>
+		</td>
+    </tr>
+    <tr class="tdbg">
+		<td height="30" align="right">聯繫方式：</td>
+		<td>
+			<input name="tel" type="text" value="<?= $user['tel']; ?>" size="20" />
+			<font color="#FF0000">*</font>
+			<font color="#666666">例如：0915-555-111 或 02-22220000</font>
+		</td>
+    </tr>
+    <tr class="tdbg">
+		<td height="30" align="right">帳號狀態：</td>
+		<td>
+			<input type="radio" name="status" value="1"<?= ($user['status']==1)? "checked" : ""; ?>>正常
+			<input type="radio" name="status" value="0"<?= ($user['status']==0)? "checked" : ""; ?>>停用
+		</td>
+	</tr>
+    <tr class="tdbg">
+		<td height="30" align="right">角色：</td>
+		<td>
+			<select name="role">
+				<option value="1"<?= ($user['role']==1)? "selected" : ""; ?>>超級管理員</option>
+				<option value="0"<?= ($user['role']==0)? "selected" : ""; ?>>普通管理員</option>
+			</select>
+		</td>
+    </tr>
+    <tr class="tdbg">
+		<td height="30" align="right">&nbsp;</td>
+		<td>
+			<input type="submit" value="送出" />
+			<input type="hidden" name="id" value="<?= $user['id']; ?>">
+			<input type="button" onclick="history.go(-1)" value="返回" />
+		</td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

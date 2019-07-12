@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<link href="./Public/Admin/Css/public.css" rel="stylesheet" type="text/css" />
+	<title>產品管理</title>
+</head>
+
+<body>
+	<table width="100%" border="0" align="center" cellpadding="1" cellspacing="1" class="border">
+		<tr class="topbg">
+			<td>產品管理</td>
+		</tr>
+		<tr class="tdbg">
+			<td height="30">&nbsp;&nbsp;
+				<a href="?c=Product&a=index">產品列表</a>&nbsp;|&nbsp;
+				<a href="?c=Product&a=add">新增產品</a></td>
+		</tr>
+	</table>
+	<br />
+	<form id="form1" name="form1" method="post" action="?c=Product&a=update">
+		<table width="100%" border="0" align="center" cellpadding="3" cellspacing="1" class="border">
+			<tr class="title">
+				<td colspan="2" align="center">修改產品</td>
+			</tr>
+
+
+			<tr class="tdbg">
+				<td height="30" align="right">產品名稱：</td>
+				<td>
+					<input name="產品名稱" type="text" value="<?= $product['產品名稱']; ?>" size="20" />
+					<font color="#FF0000">*</font>
+					<font color="#666666">產品的名稱</font>
+				</td>
+			</tr>
+
+
+			<tr class="tdbg">
+				<td height="30" align="right">產品代號：</td>
+				<td>
+					<input name="產品代號" type="text" value="<?= $product['產品代號']; ?>" size="20" />
+					<font color="#FF0000">*</font>
+					<font color="#666666">產品的型號</font>
+				</td>
+			</tr>
+
+			<tr class="tdbg">
+				<td height="30" align="right">單價：</td>
+				<td>
+					<input name="單價" type="text" value="<?= $product['單價']; ?>" size="20" />
+					<font color="#FF0000">*</font>
+					<font color="#666666">產品的售價</font>
+				</td>
+			</tr>
+
+
+			<tr class="tdbg">
+				<td height="30" align="right">成本：</td>
+				<td>
+					<input name="成本" type="text" value="<?= $product['成本']; ?>" size="20" />
+					<font color="#FF0000">*</font>
+					<font color="#666666">產品的成本</font>
+				</td>
+			</tr>
+			<tr class="tdbg">
+				<td height="30" align="right">&nbsp;</td>
+				<td>
+					<input type="submit" value="送出" />
+					<input type="hidden" name="id" value="<?= $product['id']; ?>">
+					<input type="button" onclick="history.go(-1)" value="返回" />
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+
+</html>

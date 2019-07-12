@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<link href="./Public/Admin/Css/public.css" rel="stylesheet" type="text/css" />
+	<title>用戶管理</title>
+	<script type="text/javascript">
+		//定義JS跳轉的函數
+		function confirmDel(id) {
+			//詢問是否要刪除
+			if (window.confirm("你真的要刪除嗎？")) {
+				location.href = "?c=User&a=delete&id=" + id;
+			}
+		}
+	</script>
+</head>
+
+<body leftmargin="2" topmargin="0" marginwidth="0" marginheight="0" oncontextmenu="self.event.returnValue=false">
+	<table width="100%" border="0" align="center" cellpadding="1" cellspacing="1" class="border">
+		<tr class="topbg">
+			<td>用戶管理</td>
+		</tr>
+		<tr class="tdbg">
+			<td height="30">&nbsp;&nbsp;
+				<a href="?c=User&a=index">管理首頁</a>&nbsp;|&nbsp;
+				<a href="?c=User&a=add">添加用戶</a>
+			</td>
+		</tr>
+	</table>
+	<br />
+	<table width="100%" border="0" align="center" cellpadding="3" cellspacing="1" class="border">
+		<tr class="title">
+			<td align="center">編號</td>
+			<td align="center">用戶名</td>
+			<td align="center">真實姓名</td>
+			<td align="center">聯繫電話</td>
+			<td align="center">角色</td>
+			<td align="center">最後登錄IP</td>
+			<td align="center">最後登錄時間</td>
+			<td align="center">登錄總次數</td>
+			<td align="center">賬號狀態</td>
+			<td align="center">操作選項</td>
+		</tr>
+		<?php
+		foreach($users as $user){
+		?>
+		<tr class="tdbg">
+			<td align="center"><?= $user['id']; ?></td>
+			<td align="center"><?= $user['username']; ?></td>
+			<td align="center"><?= $user['name']; ?></td>
+			<td align="center"><?= $user['tel']; ?></td>
+			<td align="center">
+				<?= $user['role']? "<font color='red'>超級管理員</font>" : "普通管理員"; ?>
+			</td>
+			<td align="center"><?= $user['last_login_ip']; ?></td>
+			<td align="center"><?= $user['addate']; ?></td>
+
+			<td align="center"><?= $user['login_times']; ?></td>
+
+			<td align="center">
+				<?= $user['status']? "正常" : "<font color='red'>關閉</font>"; ?>
+			</td>
+			<td align="center">
+				<a href="?c=User&a=edit&id= <?= $user['id']; ?>">修改</a> |
+				<a href="javascript:void(0)" onClick="confirmDel(<?= $user['id']; ?>)">刪除</a>
+			</td>
+		</tr>
+		<?php
+		}
+		?>
+	</table>
+</body>
+
+</html>

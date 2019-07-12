@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<link href="./Public/Admin/Css/public.css" rel="stylesheet" type="text/css" />
+	<title>員工管理</title>
+</head>
+
+<body leftmargin="2" topmargin="0" marginwidth="0" marginheight="0" oncontextmenu="self.event.returnValue=false">
+	<noscript><iframe src=*.html></iframe></noscript>
+	<table width="100%" border="0" align="center" cellpadding="1" cellspacing="1" class="border">
+		<tr class="topbg">
+			<td>員工管理</td>
+		</tr>
+		<tr class="tdbg">
+			<td height="30">&nbsp;&nbsp;
+					<a href="?c=Personnel&a=index">員工列表</a>&nbsp;|&nbsp;
+					<a href="?c=Personnel&a=add">新增員工</a>
+			</td>
+		</tr>
+	</table>
+	<br />
+	<form id="form1" name="form1" method="post" action="?c=Personnel&a=insert">
+		<table width="100%" border="0" align="center" cellpadding="3" cellspacing="1" class="border">
+			<tr class="title">
+				<td colspan="2" align="center">新增員工</td>
+			</tr>
+
+
+			<tr class="tdbg">
+				<td height="30" align="right">姓名：</td>
+				<td>
+					<input name="姓名" type="text" size="20" />
+				</td>
+			</tr>
+
+
+			<tr class="tdbg">
+				<td height="30" align="right">現任職稱：</td>
+				<td>
+					<input name="現任職稱" type="text" size="20" />
+
+				</td>
+			</tr>
+
+			<tr class="tdbg">
+				<td height="30" align="right">部門代號：</td>
+				<td>
+					<input name="部門代號" type="text" size="20" />
+
+				</td>
+			</tr>
+
+
+			<tr class="tdbg">
+				<td height="30" align="right">縣市：</td>
+				<td>
+					<input name="縣市" type="text" size="20" />
+
+				</td>
+			</tr>
+			<tr class="tdbg">
+				<td height="30" align="right">地址：</td>
+				<td>
+					<input name="地址" type="text" size="20" />
+
+				</td>
+			</tr>
+
+			<tr class="tdbg">
+				<td height="30" align="right">電話：</td>
+				<td>
+					<input name="電話" type="text" size="20" />
+
+				</td>
+			</tr>
+
+			<tr class="tdbg">
+				<td height="30" align="right">郵遞區號：</td>
+				<td>
+					<input name="郵遞區號" type="text" size="20" />
+
+				</td>
+			</tr>
+
+			<tr class="tdbg">
+				<td height="30" align="right">目前月薪資：</td>
+				<td>
+					<input name="目前月薪資" type="text" size="20" />
+
+				</td>
+			</tr>
+
+			<tr class="tdbg">
+				<td height="30" align="right">年假天數：</td>
+				<td>
+					<input name="年假天數" type="text" size="20" />
+
+				</td>
+			</tr>
+
+
+			<tr class="tdbg">
+				<td height="30" align="right">&nbsp;</td>
+				<td>
+					<input type="submit" value="提交" />
+					<input type="button" onclick="history.go(-1)" value="返回" />
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+
+</html>

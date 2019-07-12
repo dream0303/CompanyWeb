@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<link href="./Public/Admin/Css/public.css" rel="stylesheet" type="text/css" />
+	<title>用戶管理</title>
+</head>
+
+<body leftmargin="2" topmargin="0" marginwidth="0" marginheight="0" oncontextmenu="self.event.returnValue=false">
+	<noscript><iframe src=*.html></iframe></noscript>
+	<table width="100%" border="0" align="center" cellpadding="1" cellspacing="1" class="border">
+		<tr class="topbg">
+			<td>用戶管理</td>
+		</tr>
+		<tr class="tdbg">
+			<td height="30">&nbsp;&nbsp;
+				<a href="?c=User&a=index">管理首頁</a>&nbsp;|&nbsp;
+				<a href="?c=User&a=add">添加用戶</a></td>
+		</tr>
+	</table>
+	<br />
+	<form id="form1" name="form1" method="post" action="?c=User&a=insert">
+		<table width="100%" border="0" align="center" cellpadding="3" cellspacing="1" class="border">
+			<tr class="title">
+				<td colspan="2" align="center">添加用戶</td>
+			</tr>
+			<tr class="tdbg">
+				<td width="15%" height="30" align="right">用戶名稱：</td>
+				<td width="85%">
+					<input name="username" type="text" id="username" size="20" maxlength="15" />
+					<font color="#FF0000">*</font>
+					<font color="#666666">長度為5-15位（字母、數字），不能含有特殊符號</font>
+				</td>
+			</tr>
+			<tr class="tdbg">
+				<td height="30" align="right">用戶密碼：</td>
+				<td>
+					<input name="password" type="password" id="password" size="20" maxlength="15" />
+					<font color="#FF0000">*</font>
+					<font color="#666666">長度為5-15位（字母、數字），不能含有特殊符號</font>
+				</td>
+			</tr>
+			<tr class="tdbg">
+				<td height="30" align="right">確認密碼：</td>
+				<td>
+					<input name="confirmpwd" type="password" id="confirmpwd" size="20" maxlength="15" />
+					<font color="#FF0000">*</font>
+					<font color="#666666">兩次輸入的密碼必須一致</font>
+				</td>
+			</tr>
+			<tr class="tdbg">
+				<td height="30" align="right">真實姓名：</td>
+				<td>
+					<input name="name" type="text" id="name" size="20" maxlength="15" />
+					<font color="#FF0000">*</font>
+					<font color="#666666">你的姓名</font>
+				</td>
+			</tr>
+			<tr class="tdbg">
+				<td height="30" align="right">聯繫方式：</td>
+				<td>
+					<input name="tel" type="text" id="tel" size="20" maxlength="20" />
+					<font color="#FF0000">*</font>
+					<font color="#666666">例如：0915555666 或 02-21324567</font>
+				</td>
+			</tr>
+			<tr class="tdbg">
+				<td height="30" align="right">賬號狀態：</td>
+				<td>
+					<input name="status" type="radio" value="1" checked="checked" />正常
+					<input type="radio" name="status" value="0" />停用
+				</td>
+			</tr>
+			<tr class="tdbg">
+				<td height="30" align="right">角色：</td>
+				<td>
+					<select name="role">
+						<option value="1" selected="selected">超級管理員</option>
+						<option value="0">普通管理員</option>
+					</select>
+				</td>
+			</tr>
+			<tr class="tdbg">
+				<td height="30" align="right">&nbsp;</td>
+				<td>
+					<input type="submit" value="提交" />
+					<input type="button" onclick="history.go(-1)" value="返回" />
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+
+</html>

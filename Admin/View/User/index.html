@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Mirrored from v.bootstrapmb.com/2019/5/9stg4750/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 02 Jun 2019 08:02:56 GMT -->
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>前台頁面</title><!-- Main Styles -->
+    <link rel="stylesheet" href="./Bootstrap/assets/styles/style.min.css"><!-- Material Design Icon -->
+    <link rel="stylesheet" href="./Bootstrap/assets/fonts/material-design/css/materialdesignicons.css">
+    <!-- mCustomScrollbar -->
+    <link rel="stylesheet" href="./Bootstrap/assets/plugin/mCustomScrollbar/jquery.mCustomScrollbar.min.css">
+    <!-- Waves Effect -->
+    <link rel="stylesheet" href="./Bootstrap/assets/plugin/waves/waves.min.css"><!-- Sweet Alert -->
+    <link rel="stylesheet" href="./Bootstrap/assets/plugin/sweet-alert/sweetalert.css"><!-- Percent Circle -->
+    <link rel="stylesheet" href="./Bootstrap/assets/plugin/percircle/css/percircle.css"><!-- Chartist Chart -->
+    <link rel="stylesheet" href="./Bootstrap/assets/plugin/chart/chartist/chartist.min.css"><!-- FullCalendar -->
+    <link rel="stylesheet" href="./Bootstrap/assets/plugin/fullcalendar/fullcalendar.min.css">
+    <link rel="stylesheet" href="./Bootstrap/assets/plugin/fullcalendar/fullcalendar.print.css" media='print'>
+    <!-- Color Picker -->
+    <link rel="stylesheet" href="./Bootstrap/assets/color-switcher/color-switcher.min.css">
+
+    <link rel="stylesheet" href="./Bootstrap/assets/plugin/datatables/media/css/jquery.dataTables.min.css"><!-- Color Picker -->
+	<script type="text/javascript">
+		//定義JS跳轉的函數
+		function confirmDel(id) {
+			//詢問是否要刪除
+			if (window.confirm("你真的要刪除嗎？")) {
+				location.href = "?c=User&a=delete&id=" + id;
+			}
+		}
+	</script>
+</head>
+
+<body>
+    <div class="main-menu">
+        <header class="header"><a href="?c=Index" class="logo">後台選單</a><button type="button"
+                class="button-close fa fa-times js__menu_close"></button></header><!-- /.header -->
+        <div class="content">
+            <div class="navigation">
+                <ul class="menu js__accordion">
+                    <li class="current"><a class="waves-effect" href="?c=Index"><i
+                                class="menu-icon mdi mdi-view-dashboard"></i><span>首頁</span></a></li>
+
+
+
+
+                    <li><a class="waves-effect parent-item js__control" href="#"><i
+                                class="menu-icon mdi mdi-buffer"></i><span>頁面</span>
+
+                            <span class="menu-arrow fa fa-angle-down"></span>
+                        </a>
+                        <ul class="sub-menu js__content">
+                            <li><a href="./index.php">前台</a></li>
+                            <li><a href="./admin.php">後台</a></li>
+
+                        </ul><!-- /.sub-menu js__content -->
+                    </li>
+
+
+
+                    <li><a class="waves-effect parent-item js__control" href="#"><i
+                                class="menu-icon mdi mdi-table"></i><span>產品管理</span><span
+                                class="menu-arrow fa fa-angle-down"></span></a>
+                        <ul class="sub-menu js__content">
+                            <li><a href="?c=Product&a=add">新增產品</a></li>
+                            <li><a href="?c=Product&a=index">產品列表</a></li>
+                        </ul><!-- /.sub-menu js__content -->
+                    </li>
+                    <li><a class="waves-effect parent-item js__control" href="#"><i
+                                class="menu-icon mdi mdi-table"></i><span>員工管理</span><span
+                                class="menu-arrow fa fa-angle-down"></span></a>
+                        <ul class="sub-menu js__content">
+                            <li><a href="?c=Personnel&a=add">新增員工</a></li>
+                            <li><a href="?c=Personnel&a=index">員工列表</a></li>
+                        </ul><!-- /.sub-menu js__content -->
+                    </li>
+                    <li><a class="waves-effect parent-item js__control" href="#"><i
+                                class="menu-icon mdi mdi-table"></i><span>客戶管理</span><span
+                                class="menu-arrow fa fa-angle-down"></span></a>
+                        <ul class="sub-menu js__content">
+                            <li><a href="?c=Customer&a=add">新增客戶</a></li>
+                            <li><a href="?c=Customer&a=index">客戶列表</a></li>
+                        </ul><!-- /.sub-menu js__content -->
+                    </li>
+
+                    <li><a class="waves-effect parent-item js__control" href="#"><i
+                                class="menu-icon mdi mdi-table"></i><span>帳戶管理</span><span
+                                class="menu-arrow fa fa-angle-down"></span></a>
+                        <ul class="sub-menu js__content">
+                            <li><a href="?c=User&a=add">新增帳戶</a></li>
+                            <li><a href="?c=User&a=index">帳戶列表</a></li>
+                        </ul><!-- /.sub-menu js__content -->
+                    </li>
+
+                </ul><!-- /.menu js__accordion -->
+            </div><!-- /.navigation -->
+        </div><!-- /.content -->
+    </div><!-- /.main-menu -->
+    <div class="fixed-navbar">
+        <div class="pull-left"><button type="button"
+                class="menu-mobile-button glyphicon glyphicon-menu-hamburger js__menu_mobile"></button>
+            <h1 class="page-title">帳戶列表</h1><!-- /.page-title -->
+        </div><!-- /.pull-left -->
+        <div class="pull-right">
+            <div class="ico-item"><a href="#" class="ico-item fa fa-search js__toggle_open"
+                    data-target="#searchform-header"></a>
+                <form action="#" id="searchform-header" class="searchform js__toggle"><input type="search"
+                        placeholder="Search..." class="input-search"><button class="fa fa-search button-search"
+                        type="submit"></button></form><!-- /.searchform -->
+            </div><!-- /.ico-item -->
+            <div class="ico-item fa fa-arrows-alt js__full_screen">
+            </div><!-- /.ico-item fa fa-fa-arrows-alt -->
+            <a href="#" class="ico-item pulse"><span class="ico-item fa fa-bell notice-alarm js__toggle_open"
+                    data-target="#notification-popup"></span></a>
+            <div class="ico-item"><img src="http://placehold.it/80x80" alt="" class="ico-img">
+                <ul class="sub-ico-item">
+                    <li><a class="js__logout" href="#">登出</a></li>
+                </ul><!-- /.sub-ico-item -->
+            </div><!-- /.ico-item -->
+        </div><!-- /.pull-right -->
+    </div><!-- /.fixed-navbar -->
+    <div id="notification-popup" class="notice-popup js__toggle" data-space="50">
+        <h2 class="popup-title">Your Notifications</h2><!-- /.popup-title -->
+        <div class="content">
+            <ul class="notice-list">
+                <li><a href="#"><span class="avatar"><img src="http://placehold.it/80x80" alt=""></span><span
+                            class="name">John Doe</span><span class="desc">Like your post: “Contact Form 7
+                            Multi-Step”</span><span class="time">10 min</span></a></li>
+                <li><a href="#"><span class="avatar"><img src="http://placehold.it/80x80" alt=""></span><span
+                            class="name">Anna William</span><span class="desc">Like your post: “Facebook
+                            Messenger”</span><span class="time">15 min</span></a></li>
+                <li><a href="#"><span class="avatar bg-warning"><i class="fa fa-warning"></i></span><span
+                            class="name">Update Status</span><span class="desc">Failed to get available update data. To
+                            ensure the please contact us.</span><span class="time">30 min</span></a></li>
+                <li><a href="#"><span class="avatar"><img src="http://placehold.it/128x128" alt=""></span><span
+                            class="name">Jennifer</span><span class="desc">Like your post: “Contact Form 7
+                            Multi-Step”</span><span class="time">45 min</span></a></li>
+                <li><a href="#"><span class="avatar"><img src="http://placehold.it/80x80" alt=""></span><span
+                            class="name">Michael Zenaty</span><span class="desc">Like your post: “Contact Form 7
+                            Multi-Step”</span><span class="time">50 min</span></a></li>
+                <li><a href="#"><span class="avatar"><img src="http://placehold.it/80x80" alt=""></span><span
+                            class="name">Simon</span><span class="desc">Like your post: “Facebook Messenger”</span><span
+                            class="time">1 hour</span></a></li>
+                <li><a href="#"><span class="avatar bg-violet"><i class="fa fa-flag"></i></span><span
+                            class="name">Account Contact Change</span><span class="desc">A contact detail associated
+                            with your account has been changed.</span><span class="time">2 hours</span></a></li>
+                <li><a href="#"><span class="avatar"><img src="http://placehold.it/80x80" alt=""></span><span
+                            class="name">Helen 987</span><span class="desc">Like your post: “Facebook
+                            Messenger”</span><span class="time">Yesterday</span></a></li>
+                <li><a href="#"><span class="avatar"><img src="http://placehold.it/128x128" alt=""></span><span
+                            class="name">Denise Jenny</span><span class="desc">Like your post: “Contact Form 7
+                            Multi-Step”</span><span class="time">Oct, 28</span></a></li>
+                <li><a href="#"><span class="avatar"><img src="http://placehold.it/80x80" alt=""></span><span
+                            class="name">Thomas William</span><span class="desc">Like your post: “Facebook
+                            Messenger”</span><span class="time">Oct, 27</span></a></li>
+            </ul><!-- /.notice-list --><a href="#" class="notice-read-more">See more messages <i
+                    class="fa fa-angle-down"></i></a>
+        </div><!-- /.content -->
+    </div><!-- /#notification-popup -->
+
+
+
+    <div id="message-popup" class="notice-popup js__toggle" data-space="50">
+        <h2 class="popup-title">Recent Messages<a href="#" class="pull-right text-danger">New message</a></h2>
+        <!-- /.popup-title -->
+        <div class="content">
+            <ul class="notice-list">
+                <li><a href="#"><span class="avatar"><img src="http://placehold.it/80x80" alt=""></span><span
+                            class="name">John Doe</span><span class="desc">Amet odio neque nobis consequuntur
+                            consequatur a quae, impedit facere repellat voluptates.</span><span class="time">10
+                            min</span></a></li>
+                <li><a href="#"><span class="avatar"><img src="http://placehold.it/80x80" alt=""></span><span
+                            class="name">Harry Halen</span><span class="desc">Amet odio neque nobis consequuntur
+                            consequatur a quae, impedit facere repellat voluptates.</span><span class="time">15
+                            min</span></a></li>
+                <li><a href="#"><span class="avatar"><img src="http://placehold.it/80x80" alt=""></span><span
+                            class="name">Thomas Taylor</span><span class="desc">Amet odio neque nobis consequuntur
+                            consequatur a quae, impedit facere repellat voluptates.</span><span class="time">30
+                            min</span></a></li>
+                <li><a href="#"><span class="avatar"><img src="http://placehold.it/128x128" alt=""></span><span
+                            class="name">Jennifer</span><span class="desc">Amet odio neque nobis consequuntur
+                            consequatur a quae, impedit facere repellat voluptates.</span><span class="time">45
+                            min</span></a></li>
+                <li><a href="#"><span class="avatar"><img src="http://placehold.it/80x80" alt=""></span><span
+                            class="name">Helen Candy</span><span class="desc">Amet odio neque nobis consequuntur
+                            consequatur a quae, impedit facere repellat voluptates.</span><span class="time">45
+                            min</span></a></li>
+                <li><a href="#"><span class="avatar"><img src="http://placehold.it/128x128" alt=""></span><span
+                            class="name">Anna Cavan</span><span class="desc">Amet odio neque nobis consequuntur
+                            consequatur a quae, impedit facere repellat voluptates.</span><span class="time">1 hour
+                            ago</span></a></li>
+                <li><a href="#"><span class="avatar bg-success"><i class="fa fa-user"></i></span><span
+                            class="name">Jenny Betty</span><span class="desc">Amet odio neque nobis consequuntur
+                            consequatur a quae, impedit facere repellat voluptates.</span><span class="time">1 day
+                            ago</span></a></li>
+                <li><a href="#"><span class="avatar"><img src="http://placehold.it/128x128" alt=""></span><span
+                            class="name">Denise Peterson</span><span class="desc">Amet odio neque nobis consequuntur
+                            consequatur a quae, impedit facere repellat voluptates.</span><span class="time">1 year
+                            ago</span></a></li>
+            </ul><!-- /.notice-list --><a href="#" class="notice-read-more">See more messages <i
+                    class="fa fa-angle-down"></i></a>
+        </div>
+
+
+
+        <!-- /.content -->
+    </div><!-- /#message-popup -->
+
+    <div id="wrapper">
+        <div class="main-content">
+
+
+            <div class="row small-spacing">
+                <div class="col-xs-12">
+                    <div class="box-content">
+                        <table id="example-edit" class="display" style="width: 100%">
+                            <thead>
+                                <tr>
+                                    <th>編號</th>
+                                    <th>用戶名</th>
+                                    <th>真實姓名</th>
+                                    <th>聯繫電話</th>
+                                    <th>角色</th>
+                                    <th>最後登錄IP</th>
+                                    <th>最後登錄時間</th>
+                                    <th>登錄總次數</th>
+                                    <th>帳號狀態</th>
+                                    <th>操作選項</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th>編號</th>
+                                    <th>用戶名</th>
+                                    <th>真實姓名</th>
+                                    <th>聯繫電話</th>
+                                    <th>角色</th>
+                                    <th>最後登錄IP</th>
+                                    <th>最後登錄時間</th>
+                                    <th>登錄總次數</th>
+                                    <th>帳號狀態</th>
+                                    <th>操作選項</th>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                <?php
+                                foreach($users as $user){
+                                ?>
+                                <tr>
+                                    <td><?= $user['id']; ?></td>
+                                    <td><?= $user['username']; ?></td>
+                                    <td><?= $user['name']; ?></td>
+                                    <td><?= $user['tel']; ?></td>
+                                    <td>
+                                        <?= $user['role']? "<font color='red'>超級管理員</font>" : "普通管理員"; ?>
+                                    </td>
+                                    <td><?= $user['last_login_ip']; ?></td>
+                                    <td><?= $user['addate']; ?></td>
+                                    <!-- <td align="center"><?= date_format($user['addate'],"Y/m/d H:i:s"); ?></td> -->
+                                    <td><?= $user['login_times']; ?></td>
+                                    <!-- <td align="center"><{$user.addate|date_format:'%Y-%m-%d %H:%M:%S'}></td> -->
+                                    <td>
+                                        <?= $user['status']? "正常" : "<font color='red'>關閉</font>"; ?>
+                                    </td>
+                                    <td>
+                                        <a href="?c=User&a=edit&id= <?= $user['id']; ?>">修改</a> |
+                                        <a href="javascript:void(0)" onClick="confirmDel(<?= $user['id']; ?>)">刪除</a>
+                                    </td>
+                                </tr>
+                                <?php
+                                }
+                                ?>
+
+                            </tbody>
+                        </table>
+                    </div><!-- /.box-content -->
+                </div><!-- /.col-xs-12 -->
+            </div><!-- /.row small-spacing -->
+
+
+
+            <!-- /.row -->
+            <footer class="footer">
+                <ul class="list-inline">
+                    <li>2019 © 網頁製作 余友閔.</li>
+                    <li><a href="?c=Index">回首頁</a></li>
+                </ul>
+            </footer>
+        </div><!-- /.main-content -->
+    </div>
+    <!--/#wrapper -->
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]><script src="assets/script/html5shiv.min.js"></script><script src="assets/script/respond.min.js"></script><![endif]-->
+    <!-- 	================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="./Bootstrap/assets/scripts/jquery.min.js"></script>
+    <script src="./Bootstrap/assets/scripts/modernizr.min.js"></script>
+    <script src="./Bootstrap/assets/plugin/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./Bootstrap/assets/plugin/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="./Bootstrap/assets/plugin/nprogress/nprogress.js"></script>
+    <script src="./Bootstrap/assets/plugin/sweet-alert/sweetalert.min.js"></script>
+    <script src="./Bootstrap/assets/plugin/waves/waves.min.js"></script><!-- Full Screen Plugin -->
+    <script src="./Bootstrap/assets/plugin/fullscreen/jquery.fullscreen-min.js"></script><!-- Google Chart -->
+    <script type="text/javascript" src="../../../../www.gstatic.com/charts/loader.js"></script><!-- chart.js Chart -->
+    <script src="./Bootstrap/assets/plugin/chart/chartjs/Chart.bundle.min.js"></script>
+    <script src="./Bootstrap/assets/scripts/chart.chartjs.init.min.js"></script><!-- FullCalendar -->
+    <script src="./Bootstrap/assets/plugin/moment/moment.js"></script>
+    <script src="./Bootstrap/assets/plugin/fullcalendar/fullcalendar.min.js"></script>
+    <script src="./Bootstrap/assets/scripts/fullcalendar.init.js"></script><!-- Sparkline Chart -->
+    <script src="./Bootstrap/assets/plugin/chart/sparkline/jquery.sparkline.min.js"></script>
+    <script src="./Bootstrap/assets/scripts/chart.sparkline.init.min.js"></script>
+    <script src="./Bootstrap/assets/scripts/main.min.js"></script>
+    <script src="./Bootstrap/assets/color-switcher/color-switcher.min.js"></script>
+
+    <script src="./Bootstrap/assets/plugin/datatables/media/js/jquery.dataTables.min.js"></script>
+    <script src="./Bootstrap/assets/plugin/datatables/media/js/dataTables.bootstrap.min.js"></script>
+    <script src="./Bootstrap/assets/plugin/editable-table/mindmup-editabletable.js"></script>
+    <script src="./Bootstrap/assets/scripts/datatables.demo.min.js"></script>
+
+</body>
+<!-- Mirrored from v.bootstrapmb.com/2019/5/9stg4750/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 02 Jun 2019 08:02:56 GMT -->
+
+</html>

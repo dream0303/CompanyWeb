@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<link href="./Public/Admin/Css/public.css" rel="stylesheet" type="text/css" />
+	<title>客戶管理</title>
+</head>
+
+<body leftmargin="2" topmargin="0" marginwidth="0" marginheight="0" oncontextmenu="self.event.returnValue=false">
+	<table width="100%" border="0" align="center" cellpadding="1" cellspacing="1" class="border">
+		<tr class="topbg">
+			<td>客戶管理</td>
+		</tr>
+		<tr class="tdbg">
+			<td height="30">&nbsp;&nbsp;
+				<a href="?c=Customer&a=index">客戶列表</a>&nbsp;|&nbsp;
+				<a href="?c=Customer&a=add">新增客戶</a>
+			</td>
+		</tr>
+	</table>
+	<br />
+	<table width="100%" border="0" align="center" cellpadding="3" cellspacing="1" class="border">
+		<tr class="title">
+			<td align="center">編號</td>
+			<td align="center">客戶寶號</td>
+			<td align="center">客戶代號</td>
+			<td align="center">縣市</td>
+			<td align="center">地址</td>
+			<td align="center">郵遞區號</td>
+			<td align="center">聯絡人</td>
+			<td align="center">職稱</td>
+			<td align="center">電話</td>
+			<td align="center">行業別</td>
+			<td align="center">統一編號</td>
+		</tr>
+		<?php
+		foreach($customers as $customer){
+		?>
+		<tr class="tdbg">
+			<td align="center"><?= $customer['id']; ?></td>
+			<td align="center"><?= $customer['客戶寶號']; ?></td>
+			<td align="center"><?= $customer['客戶代號']; ?></td>
+			<td align="center"><?= $customer['縣市']; ?></td>
+			<td align="center"><?= $customer['地址']; ?></td>
+			<td align="center"><?= $customer['郵遞區號']; ?></td>
+			<td align="center"><?= $customer['聯絡人']; ?></td>
+			<td align="center"><?= $customer['職稱']; ?></td>
+			<td align="center"><?= $customer['電話']; ?></td>
+			<td align="center"><?= $customer['行業別']; ?></td>
+			<td align="center"><?= $customer['統一編號']; ?></td>
+			<td align="center">
+				<a href="?c=Customer&a=edit&id= <?= $customer['id']; ?>">修改</a>
+			</td>
+		</tr>
+		<?php
+		}
+		?>
+	</table>
+</body>
+
+</html>

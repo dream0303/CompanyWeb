@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<link href="./Public/Admin/Css/public.css" rel="stylesheet" type="text/css" />
+	<title>員工管理</title>
+	<script type="text/javascript">
+		//定義JS跳轉的函數
+		function confirmDel(id) {
+			//詢問是否要刪除
+			if (window.confirm("你真的要刪除嗎？")) {
+				location.href = "?c=Product&a=delete&id=" + id;
+			}
+		}
+	</script>
+</head>
+
+<body leftmargin="2" topmargin="0" marginwidth="0" marginheight="0" oncontextmenu="self.event.returnValue=false">
+	<table width="100%" border="0" align="center" cellpadding="1" cellspacing="1" class="border">
+		<tr class="topbg">
+			<td>產品管理</td>
+		</tr>
+		<tr class="tdbg">
+			<td height="30">&nbsp;&nbsp;
+				<a href="?c=Product&a=index">產品列表</a>&nbsp;|&nbsp;
+				<a href="?c=Product&a=add">新增產品</a>
+			</td>
+		</tr>
+	</table>
+	<br />
+	<table width="100%" border="0" align="center" cellpadding="3" cellspacing="1" class="border">
+		<tr class="title">
+			<td align="center">編號</td>
+			<td align="center">產品名稱</td>
+			<td align="center">產品代號</td>
+			<td align="center">單價</td>
+			<td align="center">成本</td>
+		</tr>
+		<?php
+		foreach($products as $product){
+		?>
+		<tr class="tdbg">
+			<td align="center"><?= $product['id']; ?></td>
+			<td align="center"><?= $product['產品名稱']; ?></td>
+			<td align="center"><?= $product['產品代號']; ?></td>
+			<td align="center"><?= $product['單價']; ?></td>
+			<td align="center"><?= $product['成本']; ?></td>
+
+			<td align="center">
+				<a href="?c=Product&a=edit&id= <?= $product['id']; ?>">修改</a> |
+				<a href="javascript:void(0)" onClick="confirmDel(<?= $product['id']; ?>)">刪除</a>
+			</td>
+		</tr>
+		<?php
+		}
+		?>
+	</table>
+</body>
+
+</html>

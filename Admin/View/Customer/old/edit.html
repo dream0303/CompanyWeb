@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<link href="./Public/Admin/Css/public.css" rel="stylesheet" type="text/css" />
+	<title>客戶管理</title>
+</head>
+
+<body>
+	<table width="100%" border="0" align="center" cellpadding="1" cellspacing="1" class="border">
+		<tr class="topbg">
+			<td>客戶管理</td>
+		</tr>
+		<tr class="tdbg">
+			<td height="30">&nbsp;&nbsp;
+				<a href="?c=Customer&a=index">客戶列表</a>&nbsp;|&nbsp;
+				<a href="?c=Customer&a=add">新增客戶</a></td>
+		</tr>
+	</table>
+	<br />
+	<form id="form1" name="form1" method="post" action="?c=Customer&a=update">
+		<table width="100%" border="0" align="center" cellpadding="3" cellspacing="1" class="border">
+			<tr class="title">
+				<td colspan="2" align="center">修改客戶</td>
+			</tr>
+
+
+			<tr class="tdbg">
+				<td height="30" align="right">客戶寶號：</td>
+				<td>
+					<input name="客戶寶號" type="text" value="<?= $customer['客戶寶號']; ?>" size="20" />
+				</td>
+			</tr>
+
+
+			<tr class="tdbg">
+				<td height="30" align="right">客戶代號：</td>
+				<td>
+					<input name="客戶代號" type="text" value="<?= $customer['客戶代號']; ?>" size="20" />
+
+				</td>
+			</tr>
+
+			<tr class="tdbg">
+				<td height="30" align="right">縣市：</td>
+				<td>
+					<input name="縣市" type="text" value="<?= $customer['縣市']; ?>" size="20" />
+
+				</td>
+			</tr>
+
+
+			<tr class="tdbg">
+				<td height="30" align="right">地址：</td>
+				<td>
+					<input name="地址" type="text" value="<?= $customer['地址']; ?>" size="20" />
+
+				</td>
+			</tr>
+			<tr class="tdbg">
+				<td height="30" align="right">郵遞區號：</td>
+				<td>
+					<input name="郵遞區號" type="text" value="<?= $customer['郵遞區號']; ?>" size="20" />
+
+				</td>
+			</tr>
+
+			<tr class="tdbg">
+				<td height="30" align="right">聯絡人：</td>
+				<td>
+					<input name="聯絡人" type="text" value="<?= $customer['聯絡人']; ?>" size="20" />
+
+				</td>
+			</tr>
+
+			<tr class="tdbg">
+				<td height="30" align="right">職稱：</td>
+				<td>
+					<input name="職稱" type="text" value="<?= $customer['職稱']; ?>" size="20" />
+
+				</td>
+			</tr>
+
+			<tr class="tdbg">
+				<td height="30" align="right">電話：</td>
+				<td>
+					<input name="電話" type="text" value="<?= $customer['電話']; ?>" size="20" />
+
+				</td>
+			</tr>
+
+			<tr class="tdbg">
+				<td height="30" align="right">行業別：</td>
+				<td>
+					<input name="行業別" type="text" value="<?= $customer['行業別']; ?>" size="20" />
+				</td>
+			</tr>
+
+			<tr class="tdbg">
+					<td height="30" align="right">統一編號：</td>
+					<td>
+						<input name="統一編號" type="text" value="<?= $customer['統一編號']; ?>" size="20" />
+					</td>
+				</tr>
+
+			<tr class="tdbg">
+				<td height="30" align="right">&nbsp;</td>
+				<td>
+					<input type="submit" value="送出" />
+					<input type="hidden" name="id" value="<?= $customer['id']; ?>">
+					<input type="button" onclick="history.go(-1)" value="返回" />
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+
+</html>
